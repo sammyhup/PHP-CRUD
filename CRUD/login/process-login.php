@@ -23,6 +23,9 @@ if($consulta){
             //Fecha a conexao com o BD. 
             mysqli_close($connect);
 
+            //Redireciona o úsuario para a sessao restrita. 
+            header("location: ../session/dashboard.php");
+
             print( "As senhas conferem!!");
 
         }else{
