@@ -40,6 +40,25 @@
 
       <div class="row justify-content-center">
 
+      <!--Captura e apresenta os retornos para o usuario-->
+      <div class="row">
+        <div class="text-center">
+          <?php
+            //Capturar a mensagem de retorno via metodo GET. 
+            $retorno = $_GET["retorno"];
+
+            //Verifica se existe um retorno e o apresenta
+            if(isset($retorno)){
+
+             //Apresenta o conteudo do retorno.  
+              print($retorno);
+            }
+          ?>
+        
+        </div>
+
+      </div>
+
         <div class="text-center">
 
             <!-- Tabela que exibe os usuários -->
@@ -78,7 +97,7 @@
                         <td><?php print($usuario["nome"]);?></td>
                         <td><?php print($usuario["cpf"]);?></td>
                         <td><a href="#"><i class="bi bi-eye-fill"></i></a></td>
-                        <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
+                        <td><a href="form-edit-user.php"><i class="bi bi-pencil-square"></i></a></td>
                         <td><a href="proccess-delete-user.php?id=<?php print($usuario["id"]);?>"><i class="bi bi-trash3-fill"></i></a></td>
                       </tr>
                   <?php
