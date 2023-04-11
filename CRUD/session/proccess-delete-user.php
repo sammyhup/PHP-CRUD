@@ -1,35 +1,32 @@
-<?php 
-    //chamada de inclusao do arquivo de conexao com o bd
+<?php
+    //Chamada de inclusão do arquivo de conexão com o BD.
     include("../configuration/connection.php");
 
-    // Recupera o Id do usuario via metodo get. 
+    //Recuperar o ID do usuário via método GET.
     $id = $_GET["id"];
 
-    //Instruçao que faz a exclusao logica do usuario. 
-    $SQL = "UPDATE usuario SET ativo = 0 WHERE id= $id;";
+    //Instrução que faz a exclusão lógica do usuário.
+    $SQL = "UPDATE usuario SET ativo = 0 WHERE id = $id;";
 
-    //Executar a instruçao SQL e pegar o resultado. 
+    //Executar a instrução SQL e pegar o resultado.
     if(mysqli_query($connect, $SQL)){
 
-         //Fecha a conexao com o BD
-         mysqli_close($connect);
-
-         //Cria uma mensagem de retorno da operaçao. 
-        $retorno = "O usuário foi excluido com sucesso!!!";
-
-        //Redireciona o usuário. 
-        header("location: proccess-list-users.php?retorno=" . $retorno );
-
-    }else{
-        //Fecha a conexao com o BD
+        //Fecha a conexão com o BD.
         mysqli_close($connect);
 
-        //Cria uma mensagem de retorno da operaçao. 
-       $retorno = "Nao foi possivel excluir o usuario!!!";
+        //Cria uma mensagem de retorno da operação.
+        $retorno = "O usuário foi excluído com sucesso!!!";
 
-       //Redireciona o usuário. 
-       header("location: proccess-list-users.php?retorno=" . $retorno );
+        //Redireciona o usuário.
+        header("location: proccess-list-users.php?retorno=" . $retorno);
+    }else{
+        //Fecha a conexão com o BD.
+        mysqli_close($connect);
 
+        //Cria uma mensagem de retorno da operação.
+        $retorno = "Não foi possivel excluir o usuário...";
+
+        //Redireciona o usuário.
+        header("location: proccess-list-users.php?retorno=" . $retorno);
     }
-
 ?>

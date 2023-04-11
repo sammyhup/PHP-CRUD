@@ -1,50 +1,58 @@
 <?php
-//Chamada para o arquivo de conexao com o BD. 
-include("../configuration/connection.php");
+    //Chamada para o arquivo de conexão com o BD.
+    include("../configuration/connection.php");
 
-//Recupera os dados via método POST. 
-$email = $_POST["email"];
-$senha = SHA1($_POST["senha"]);
+    //Recupera os dados via método POST.
+    $email = $_POST["email"];
+    $senha = SHA1($_POST["senha"]);
 
-//Monta e executa uma consulta SQL
-$SQL = "SELECT senha FROM usuario WHERE email = '$email' ;";
-$consulta = mysqli_query($connect, $SQL);
+    //Monta e executa uma consulta SQL.
+    $SQL = "SELECT senha FROM usuario WHERE email = '$email';";
+    $consulta = mysqli_query($connect, $SQL);
 
-//Verifica se a consulta deu certo e retorna algo.
-if($consulta){
+    //Verifica se a consulta deu certo e retorna algo.
+    if($consulta){
 
-        //Recebe os dados consultados do BD. 
+        //Recebe os dados consultados do BD.
         $linha = mysqli_fetch_assoc($consulta);
         $senhaBD = $linha["senha"];
 
-    // Verifica se a senha do formulario é igual a do BD. 
+        //Verifica se a senha do usuário é igual a do BD.
         if($senha == $senhaBD){
 
-            //Fecha a conexao com o BD. 
+            //Fecha a conexão com o BD.
             mysqli_close($connect);
 
-            //Redireciona o úsuario para a sessao restrita. 
+            session_start();
+
+            //verifica se existe a sessão de usuário.
+            if(isset($_SESSION)){
+
+                //Caso ela NÃO exista, abre uma sessão.
+                session_start();
+            }
+
+            //Armazenar o e-mail do usuário em uma variável de sessão
+            $_SESSION['usuarioEmail'] = $email;
+
+            //Redireciona o usuário para a sessão restrita.
             header("location: ../session/dashboard.php");
-
-            print( "As senhas conferem!!");
-
         }else{
 
-            //Fecha a conexao com o BD. 
+            //Fecha a conexão com o BD.
             mysqli_close($connect);
-
-            //Retorna pro usuario uma mensagem de erro. 
-            $retorno = "As informações não conferem !!";
-            header("location: form-login.php?retorno=?" .$retorno);
+            
+            //Retorna pro usuário uma mensagem de erro.
+            $retorno = "Suas informações não conferem!!!";
+            header("location: form-login.php?retorno=" . $retorno);
         }
+    }else{
 
-} else{
-
-        //Fecha a conexao com o BD. 
+        //Fecha a conexão com o BD.
         mysqli_close($connect);
-        
-     //Retorna pro usuario uma mensagem de erro. 
-     $retorno = "As informações não conferem !!";
-     header("location: form-login.php?retorno=?" .$retorno);
-}
+
+        //Retorna pro usuário uma mensagem de erro.
+        $retorno = "Suas informações não conferem!!!";
+        header("location: form-login.php?retorno=" . $retorno);
+    }
 ?>

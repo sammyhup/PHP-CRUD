@@ -23,7 +23,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD - Edição de Usuário</title>
+    <title>CRUD - Informações de Usuário</title>
 
     <!-- Link de referência ao CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -32,7 +32,7 @@
 
     <!-- Cabeçalho do website -->
     <header class="p-3 text-center">
-        <h2 class="text-uppercase text-success">CRUD - EDIÇÃO DE USUÁRIO</h2>
+        <h2 class="text-uppercase text-success">CRUD - INFORMAÇÕES DE USUÁRIO</h2>
         <h4>Escola SENAI "Luiz Massa" - Botucatu (SP)</h4>
     </header>
 
@@ -56,26 +56,9 @@
     <section class="container py-5">
         <div class="row justify-content-center">
 
-            <!-- Captura e apresenta os retornos para o usuário -->
-            <div class="row mb-4">
-                <div class="text-center">
-                    <?php 
-                    //Capturar a mensagem de retorno via método GET.
-                    $retorno = $_GET["retorno"];
-
-                    //Verifica se existe um retorno e o apresenta.
-                    if(isset($retorno)){
-
-                        //Apresenta o conteúdo do retorno.
-                        print($retorno);
-                    }
-                    ?>
-                </div>
-            </div>  
-
-            <form action="proccess-edit-user.php" method="post" class="row">
+            <form class="row">
                 
-                <!-- Nome e CPF -->
+                <!-- ID, Nome e CPF -->
                 <div class="row">
                     <div class="col-2 my-3">
                         <label for="id" class="form-label">ID</label>
@@ -83,11 +66,11 @@
                     </div>
                     <div class="col-5 my-3">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" value="<?php print($usuario["nome"]); ?>">
+                        <input type="text" class="form-control" id="nome" name="nome" value="<?php print($usuario["nome"]); ?>" readonly>
                     </div>
                     <div class="col-5 my-3">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf" value="<?php print($usuario["cpf"]); ?>">
+                        <input type="text" class="form-control" id="cpf" name="cpf" value="<?php print($usuario["cpf"]); ?>" readonly>
                     </div>
                 </div>
 
@@ -95,16 +78,11 @@
                 <div class="row">
                     <div class="col-8 my-3">
                         <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" value="<?php print($usuario["data_nascimento"]); ?>">
+                        <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" value="<?php print($usuario["data_nascimento"]); ?>" readonly>
                     </div>
                     <div class="col-4 my-3">
                         <label for="genero" class="form-label">Gênero</label>
-                        <select id="genero" name="genero" class="form-select">
-                          <option selected>Selecione o gênero...</option>
-                          <option value="M">Masculino</option>
-                          <option value="F">Feminino</option>
-                          <option value="N">Não informar</option>
-                        </select>
+                        <input type="text" class="form-control" id="genero" name="genero" value="<?php print($usuario["genero"]); ?>" readonly>
                     </div>
                 </div>
 
@@ -112,15 +90,15 @@
                 <div class="row">
                     <div class="col-4 my-3">
                         <label for="cep" class="form-label">CEP</label>
-                        <input type="text" class="form-control" id="cep" name="cep" value="<?php print($usuario["cep"]); ?>">
+                        <input type="text" class="form-control" id="cep" name="cep" value="<?php print($usuario["cep"]); ?>" readonly>
                     </div>
                     <div class="col-4 my-3">
                         <label for="endereco" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" id="endereco" name="endereco" value="<?php print($usuario["logradouro"]); ?>">
+                        <input type="text" class="form-control" id="endereco" name="endereco" value="<?php print($usuario["logradouro"]); ?>" readonly>
                     </div>
                     <div class="col-4 my-3">
                         <label for="numeroResidencia" class="form-label">Número da Residência</label>
-                        <input type="text" class="form-control" id="numeroResidencia" name="numeroResidencia" value="<?php print($usuario["numero_residencia"]); ?>">
+                        <input type="text" class="form-control" id="numeroResidencia" name="numeroResidencia" value="<?php print($usuario["numero_residencia"]); ?>" readonly>
                     </div>
                 </div>
 
@@ -128,15 +106,15 @@
                 <div class="row">
                     <div class="col-4 my-3">
                         <label for="complemento" class="form-label">Complemento</label>
-                        <input type="text" class="form-control" id="complemento" name="complemento" value="<?php print($usuario["complemento"]); ?>">
+                        <input type="text" class="form-control" id="complemento" name="complemento" value="<?php print($usuario["complemento"]); ?>" readonly>
                     </div>
                     <div class="col-4 my-3">
                         <label for="bairro" class="form-label">Bairro</label>
-                        <input type="text" class="form-control" id="bairro" name="bairro" value="<?php print($usuario["bairro"]); ?>">
+                        <input type="text" class="form-control" id="bairro" name="bairro" value="<?php print($usuario["bairro"]); ?>" readonly>
                     </div>
                     <div class="col-4 my-3">
                         <label for="cidade" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" id="cidade" name="cidade" value="<?php print($usuario["cidade"]); ?>">
+                        <input type="text" class="form-control" id="cidade" name="cidade" value="<?php print($usuario["cidade"]); ?>" readonly>
                     </div>
                 </div>
 
@@ -144,47 +122,15 @@
                 <div class="row">
                     <div class="col-4 my-3">
                         <label for="estado" class="form-label">UF</label>
-                        <select id="estado" name="estado" class="form-select">
-                          <option selected>Selecione o estado...</option>
-                          <option value="AC">Acre</option>
-                          <option value="AL">Alagoas</option>
-                          <option value="AP">Amapá</option>
-                          <option value="AM">Amazonas</option>
-                          <option value="BA">Bahia</option>
-                          <option value="CE">Ceará</option>
-                          <option value="DF">Distrito Federal</option>
-                          <option value="ES">Espirito Santo</option>
-                          <option value="GO">Goiás</option>
-                          <option value="MA">Maranhão</option>
-                          <option value="MS">Mato Grosso do Sul</option>
-                          <option value="MT">Mato Grosso</option>
-                          <option value="MG">Minas Gerais</option>
-                          <option value="PA">Pará</option>
-                          <option value="PB">Paraíba</option>
-                          <option value="PR">Paraná</option>
-                          <option value="PE">Pernambuco</option>
-                          <option value="PI">Piauí</option>
-                          <option value="RJ">Rio de Janeiro</option>
-                          <option value="RN">Rio Grande do Norte</option>
-                          <option value="RS">Rio Grande do Sul</option>
-                          <option value="RO">Rondônia</option>
-                          <option value="RR">Roraima</option>
-                          <option value="SC">Santa Catarina</option>
-                          <option value="SP">São Paulo</option>
-                          <option value="SE">Sergipe</option>
-                          <option value="TO">Tocantins</option>
-                        </select>
+                        <input type="text" class="form-control" id="estado" name="estado" value="<?php print($usuario["estado"]); ?>" readonly>
                     </div>
                     <div class="col-4 my-3">
                         <label for="codigoArea" class="form-label">Código de Área</label>
-                        <select id="codigoArea" name="codigoArea" class="form-select">
-                          <option selected>Selecione o código de área...</option>
-                          <option value="+55">Brasil (+55)</option>
-                        </select>
+                        <input type="text" class="form-control" id="codigoArea" name="codigoArea" value="<?php print($usuario["codigo_area"]); ?>" readonly>
                     </div>
                     <div class="col-4 my-3">
                         <label for="celular" class="form-label">Celular com DDD</label>
-                        <input type="celular" class="form-control" id="celular" name="celular" value="<?php print($usuario["numero_celular"]); ?>">
+                        <input type="celular" class="form-control" id="celular" name="celular" value="<?php print($usuario["numero_celular"]); ?>" readonly>
                     </div>
                 </div>
 
@@ -192,7 +138,7 @@
                 <div class="row">
                     <div class="col-12 my-3">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="email" name="email" value="<?php print($usuario["email"]); ?>">
+                        <input type="email" class="form-control" id="email" name="email" value="<?php print($usuario["email"]); ?>" readonly>
                     </div>
                 </div>
                 
@@ -200,7 +146,6 @@
                 <div class="row">
                     <div class="col-12 my-3">
                         <a href="proccess-list-users.php" class="btn btn-primary">Voltar</a>
-                        <button type="submit" class="btn btn-success">Salvar</button>
                     </div>
                 </div>
             </form>

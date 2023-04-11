@@ -6,8 +6,7 @@
     <title>CRUD - Cadastro de Usuário</title>
 
     <!-- Link de referência ao CSS do Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
 
@@ -34,24 +33,25 @@
     </nav>
 
     <?php
-    //Recupera a variavel via metodo GET
-    $retorno = $_GET["retorno"];
+      //Recupera a variavel via metodo GET.
+      $retorno = $_GET["retorno"];
 
-    // Verifica a variavel possui valor e a apresenta. 
-    if(isset($retorno)){
-   
-        print ('
-  
-        <div class="container justify-content-center mt-5">
-          <div class="alert alert-danger text-center" role="alert">
-            '. $retorno. '
+      //Verifica a variavel possui valor e a apresenta.
+      if(isset($retorno)){
+          
+          //Apresenta a mensagem usando o print.
+          print('
+
+          <div class="container justify-content-center mt-5">
+            <div class="alert alert-danger text-center" role="alert">
+              ' . $retorno . '
             </div>
-        </div>
-    
-        ');
-    
-        }
-        ?>
+          </div>
+          
+          ');
+        
+      }
+    ?>
 
     <!-- Seção do formulário -->
     <section class="container py-5">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <!-- Data de nascimento e genêro -->
+                <!-- Data de nascimento e genero -->
                 <div class="row">
                     <div class="col-8 my-3">
                         <label for="dataNascimento" class="form-label">Data de Nascimento</label>
@@ -106,8 +106,6 @@
                         <input type="text" class="form-control" id="complemento" name="complemento">
                     </div>
                 </div>
-
-                
 
                 <!-- Bairro, cidade e estado -->
                 <div class="row">
