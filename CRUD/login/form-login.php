@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD - Login</title>
+    <title>Motor Deal - Login</title>
 
     <!-- Link de referência ao CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -12,23 +12,22 @@
 
     <!-- Cabeçalho do website -->
     <header class="p-3 text-center">
-        <h2 class="text-uppercase text-success">CRUD - Login</h2>
+        <h2 class="text-uppercase text-success">Motor Deal</h2>
         <h4>Escola SENAI "Luiz Massa" - Botucatu (SP)</h4>
     </header>
 
     <!-- Menu do website -->
     <nav class="navbar navbar-expand-lg bg-success">
         <div class="container-fluid">
-          <a class="navbar-brand text-light" href="#">CRUD</a>
+          <a class="text-uppercase navbar-brand text-light" href="../index.php">Início</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
             <div class="navbar-nav">
-              <a class="nav-link text-light" href="../user/form-create.php">Cadastro</a>
-              <a class="nav-link text-light" href="form-login.php">Login</a>
+              <a class="fw-bold d-flex nav-link text-light" href="form-login.php">Login</a>
             </div>
-          </div>
+
         </div>
     </nav>
 
@@ -58,7 +57,7 @@
 
       <div class="row justify-content-center">
 
-        <form action="process-login.php" method="post" class="border rounded p-3 col-4">
+        <form action="proccess-login.php" method="post" class="border rounded p-3 col-4">
           
           <!-- E-mail -->
           <div class="mb-3">
